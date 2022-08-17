@@ -92,14 +92,46 @@ void pixy_loop(){
       //Serial.print(object); 
       //Serial.print("\n");
       //electric car
-      if (object == 13523 || object == 8842 || object == 650 || object == 211) {
+       if (object == 162 || object == 1253 || object == 9890) //load
+      {
         c++;
-        Serial.println(c);
-        if (c == 30) {
+        //Serial.print(c);
+        //Serial.print("\n");
+        if (c == 30) 
+        {
+          Serial.print(" load \n");
+          pixy.setLED(0,0,255);
+          c = 0 ;
+          http_client();
+          }
+        }
+
+       if (object == 138 || object == 8842 || object == 650) // electric car
+      {
+        c++;
+        //Serial.print(c);
+        //Serial.print("\n");
+        if (c == 30) 
+        {
           Serial.print(" electric car \n");
           pixy.setLED(0,0,255);
           c = 0 ;
           http_client();
+          }
+        }
+        
+        if (object == 1235 || object == 9882 || object == 154 || object == 211) // general car
+      {
+        c++;
+        //Serial.print(c);
+        //Serial.print("\n");
+        if (c == 30) 
+        {
+          Serial.print(" general car \n");
+          pixy.setLED(0,0,255);
+          c = 0 ;
+          http_client();
+          }
         }
       }
     }
